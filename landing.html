@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学内でのワンクリック詐欺への意識調査</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card-bg: #ffffff;
+    --text: #1f2430;
+    --muted: #6b7280;
+    --accent: #d64545;
+    --accent-dark: #b23a3a;
+    --border: #e3e5e9;
+    --safe: #2f855a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+  .alert-box {
+    background: #fff5f5;
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .alert-box h1 {
+    color: var(--accent-dark);
+    font-size: 1.4rem;
+    margin-top: 0;
+  }
+  .safe-box {
+    background: #f0fff4;
+    border: 1px solid #9ae6b4;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .safe-box h2 {
+    color: var(--safe);
+    font-size: 1.1rem;
+    margin-top: 0;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.05rem;
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .q-desc {
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: -4px;
+  }
+  .options label {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+  input[type="radio"], input[type="checkbox"] { accent-color: var(--accent); }
+  textarea, input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+  }
+  button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+  }
+  button:hover { background: var(--accent-dark); }
+  button:disabled { background: #a0a0a0; cursor: not-allowed; }
+  .thanks {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .thanks h2 { color: var(--safe); }
+  .footnote {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="alert-box">
+    <h1>⚠️ これはワンクリック詐欺調査アンケートです</h1>
+    <p>
+      先ほどクリックしたメールは、<br><strong>実在の詐欺・フィッシングメールを模したアンケート用のメール</strong>でした。
+      <br>実際の攻撃であれば、個人情報の入力や不正なアプリのインストールを求められ、被害につながっていた可能性があります。
+    </p>
+  </div>
+
+  <div class="safe-box">
+    <h2>✅ ご安心ください</h2>
+    <p>
+      このページ自体に危険な操作はありません。個人を特定する情報の入力も不要です。
+      今回のクリックは、SS探究学習のデータとして記録されますが、匿名で集計され、個人が特定されることはありません。
+    </p>
+  </div>
+
+  <div id="survey-area" class="card">
+    <h3>任意のアンケートにご協力ください(匿名・1分程度)</h3>
+
+    <form id="survey-form">
+
+      <!-- ▼▼▼ ここから質問を自由に編集してください ▼▼▼ -->
+
+      <div style="margin-bottom:20px;">
+        <label>Q1. このメールを開いた一番の理由は何ですか？</label>
+        <div class="options">
+          <label><input type="radio" name="q1" value="件名が気になった" required> 件名が気になった</label>
+          <label><input type="radio" name="q1" value="差出人を知っている・信頼していた"> 差出人を知っている・信頼していた</label>
+          <label><input type="radio" name="q1" value="緊急性を感じた(至急対応等)"> 緊急性を感じた(至急対応等)</label>
+          <label><input type="radio" name="q1" value="特に意識せず開いた"> 特に意識せず開いた</label>
+          <label><input type="radio" name="q1" value="その他"> その他</label>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label>Q2. クリックする前に「怪しいかも」と感じましたか？</label>
+        <div class="options">
+          <label><input type="radio" name="q2" value="全く感じなかった" required> 全く感じなかった</label>
+          <label><input type="radio" name="q2" value="少し感じたがクリックした"> 少し感じたがクリックした</label>
+          <label><input type="radio" name="q2" value="かなり怪しいと思ったが確認のためクリックした"> かなり怪しいと思ったが確認のためクリックした</label>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label>Q3. 以前に同様のセキュリティ訓練や注意喚起を受けたことがありますか？</label>
+        <div class="options">
+          <label><input type="radio" name="q3" value="ある" required> ある</label>
+          <label><input type="radio" name="q3" value="ない"> ない</label>
+          <label><input type="radio" name="q3" value="覚えていない"> 覚えていない</label>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label>Q4. 所属学年・クラス(任意・答えたくない場合は空欄で構いません)</label>
+        <p class="q-desc">個人を特定しない範囲でご記入ください</p>
+        <input type="text" name="q4" placeholder="例: 1年 / 4組">
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label>Q5. その他、気づいた点や感想があれば教えてください</label>
+        <textarea name="q5" rows="3"></textarea>
+      </div>
+
+      <!-- ▲▲▲ ここまで質問を自由に編集してください ▲▲▲ -->
+
+      <button type="submit" id="submit-btn">回答を送信する</button>
+    </form>
+  </div>
+
+  <div id="thanks-area" class="card thanks" style="display:none;">
+    <h2>ご協力ありがとうございました</h2>
+    <p>今回の記録は匿名で集計され、SS探究学習でのみ使用されます。</p>
+  </div>
+
+  <p class="footnote">本ページは学内セキュリティ教育の一環として実施されています。</p>
+
+</div>
+
+<script>
+  // ========== 設定: ここにGoogle Apps ScriptのWebアプリURLを貼り付けてください ==========
+  const ENDPOINT_URL = https://script.google.com/macros/s/AKfycbywXWLOg2eBWyFFbuwDhLdeUj5yYs5knMFMhtU-7Fut9Un6O2hk-__dlKWsbyHIdAv4/exec;
+  // ====================================================================
+
+  // 同一ブラウザでの重複カウントを避けるため、匿名の訪問者IDをlocalStorageに保存
+  function getVisitorId() {
+    let id = localStorage.getItem("anon_visitor_id");
+    if (!id) {
+      id = "v_" + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem("anon_visitor_id", id);
+    }
+    return id;
+  }
+
+  function sendData(payload) {
+    if (!ENDPOINT_URL || ENDPOINT_URL.indexOf("http") !== 0) {
+      console.warn("ENDPOINT_URL が未設定です。Google Apps ScriptのURLを設定してください。", payload);
+      return;
+    }
+    fetch(ENDPOINT_URL, {
+      method: "POST",
+      mode: "no-cors", // Apps Script側のCORS制約のため、レスポンスは読み取れません(送信のみ)
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).catch(function (err) {
+      console.warn("送信エラー:", err);
+    });
+  }
+
+  // ページ読み込み時に「訪問」を一度だけ記録(ユニーク訪問者カウント用)
+  (function recordVisit() {
+    const visitorId = getVisitorId();
+    const alreadyCounted = localStorage.getItem("visit_recorded");
+    if (!alreadyCounted) {
+      sendData({
+        type: "visit",
+        visitorId: visitorId,
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem("visit_recorded", "1");
+    }
+  })();
+
+  // アンケート送信
+  document.getElementById("survey-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const submitBtn = document.getElementById("submit-btn");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "送信中...";
+
+    const formData = new FormData(e.target);
+    const answers = {};
+    formData.forEach(function (value, key) { answers[key] = value; });
+
+    sendData({
+      type: "survey",
+      visitorId: getVisitorId(),
+      timestamp: new Date().toISOString(),
+      answers: answers
+    });
+
+    // Apps Scriptのレスポンスは読み取れないため、送信後は一定時間で完了とみなす
+    setTimeout(function () {
+      document.getElementById("survey-area").style.display = "none";
+      document.getElementById("thanks-area").style.display = "block";
+    }, 600);
+  });
+</script>
+</body>
+</html>
